@@ -18,7 +18,7 @@ public class Assignment {
 
         // Compound assignment
         a += 15; // equivalent to a = a + 15
-        System.out.println("Updated value of a after compound assignment (a += 15): " + a); // Updated value of a after compound assignment (a += 15): 25
+        System.out.println("Updated value of a after compound assignment (a += 15): " + a); // Updated value of an after compound assignment (a += 15): 25
 
         b -= 5.5; // equivalent to b = b - 5.5
         System.out.println("Updated value of b after compound assignment (b -= 5.5): " + b); // Updated value of b after compound assignment (b -= 5.5): 15.0
@@ -40,6 +40,8 @@ public class Assignment {
         String g = "Temperature: ";
         g += 25.5; // This is valid; converts 25.5 to String and concatenates
         System.out.println("Updated value of g after compound assignment (g += 25.5): " + g); // Updated value of g after compound assignment (g += 25.5): Temperature: 25.5
+
+
     }
 
 }

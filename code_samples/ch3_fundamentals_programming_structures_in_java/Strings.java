@@ -73,5 +73,30 @@ public class Strings {
         if(emptyString != null) {
             IO.println("emptyString: " + emptyString); // Output: emptyString:  (prints the empty string, which is just a blank line)
         }
+
+        // The Java String API's:
+        // Here are some examples of the String API methods:
+        String example = "Hello, World!";
+        IO.println(example.toUpperCase()); // Output: HELLO, WORLD!
+        IO.println(example.toLowerCase()); // Output: hello, world!
+        IO.println(example.trim()); // Output: Hello, World! (removes leading and trailing whitespace)
+        IO.println(example.replace('o', 'x')); // Output: Hellx, Wxrld! (replaces all occurrences of 'o' with 'x')
+        IO.println(example.contains("World")); // Output: true (checks if the string contains the substring "World")
+        IO.println(example.startsWith("Hello")); // Output: true (checks if the string starts with "Hello")
+        IO.println(example.endsWith("!")); // Output: true (checks if the string ends with "!")
+        IO.println(example.split(", ")[0]); // Output: Hello (splits the string into an array using ", " as the delimiter and returns the first element)
+        IO.println(example.isBlank()); // Output: false (checks if the string is empty or contains only whitespace)
+        IO.println(example.isEmpty()); // Output: false (checks if the string is empty, i.e., has a length of 0)
+        IO.println(example.length()); // Output: 13 (returns the length of the string)
+
+        // StringBuilder:
+        // Here is an example of using StringBuilder to efficiently build a string for a dynamic SQL query:
+        StringBuilder sqlQuery = new StringBuilder();
+        sqlQuery.append("SELECT * FROM users WHERE age > ?");
+        sqlQuery.append(" AND city = ?");
+        sqlQuery.append(" AND status = ?");
+        sqlQuery.append(" AND registration_date > ?");
+        String finalQuery = sqlQuery.toString();
+        IO.println(finalQuery); // Output: "SELECT * FROM users WHERE age > ? AND city = ? AND status = ? AND registration_date > ?"
     }
 }

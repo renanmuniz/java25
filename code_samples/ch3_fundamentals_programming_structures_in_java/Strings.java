@@ -98,5 +98,30 @@ public class Strings {
         sqlQuery.append(" AND registration_date > ?");
         String finalQuery = sqlQuery.toString();
         IO.println(finalQuery); // Output: "SELECT * FROM users WHERE age > ? AND city = ? AND status = ? AND registration_date > ?"
+
+        // Text blocks
+        String textBlock = """
+                This is a text block in Java.
+                It allows for multi-line strings without needing escape characters.
+                """;
+        System.out.println("Text Block:\n" + textBlock);
+
+        String formattedTextBlock = """
+                Hello, %s!
+                Welcome to Java programming.
+                """.formatted("Alice");
+        System.out.println("Formatted Text Block:\n" + formattedTextBlock);
+
+        String sqlCommand = """
+                SELECT *
+                FROM users
+                WHERE age > ?
+                AND city = ?
+                AND status = ?
+                AND registration_date > ?
+                """;
+        System.out.println("SQL Command:\n" + sqlCommand);
+
+
     }
 }

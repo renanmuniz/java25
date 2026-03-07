@@ -14,6 +14,8 @@ public class Arrays {
         arrayCopying();
         mainCommandLineArguments(args);
         arraySorting();
+        multiDimensionalArrays();
+        raggedArrays();
     }
 
     private static void traditionalForLoop(int[] myArray) {
@@ -80,6 +82,52 @@ public class Arrays {
     }
 
     private static void multiDimensionalArrays() {
-        //TODO: Implement multi-dimensional arrays example
+        IO.println("Bi-dimensional arrays:");
+        int[][] multiArray = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+        };
+
+        for(int i = 0; i < multiArray.length; i++) {
+            for(int j = 0; j < multiArray[i].length; j++) {
+                IO.println("Element at position [%d][%d] has value %d".formatted(i, j, multiArray[i][j]));
+            }
+        }
+
+        IO.println("Tri-dimensional arrays:");
+        int[][][] triArray = {
+            {
+                {1, 2},
+                {3, 4}
+            },
+            {
+                {5, 6},
+                {7, 8}
+            }
+        };
+
+        for(int i = 0; i < triArray.length; i++) {
+            for(int j = 0; j < triArray[i].length; j++) {
+                for(int k = 0; k < triArray[i][j].length; k++) {
+                    IO.println("Element at position [%d][%d][%d] has value %d".formatted(i, j, k, triArray[i][j][k]));
+                }
+            }
+        }
+    }
+
+    private static void raggedArrays() {
+        IO.println("Ragged arrays:");
+        int[][] raggedArray = {
+            {1, 2, 3},
+            {4, 5},
+            {6, 7, 8, 9}
+        };
+
+        for(int i = 0; i < raggedArray.length; i++) {
+            for(int j = 0; j < raggedArray[i].length; j++) {
+                IO.println("Element at position [%d][%d] has value %d".formatted(i, j, raggedArray[i][j]));
+            }
+        }
     }
 }

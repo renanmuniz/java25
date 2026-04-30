@@ -35,5 +35,29 @@ public class EmployeeDemo {
         var name = employee3.getName();
         IO.println(name.getClass().getName()); // java.lang.String
 
+        var employee4 = new Employee("Michael R", null);
+        IO.println(employee4.getName()); // Michael R
+        IO.println(employee4.getSalary()); // 0.0 default value for primitive double type if no value is set.
+        IO.println(employee4.getHireDay()); // null, since we passed null for the hireDay parameter in the constructor.
+        //IO.println(employee4.getHireDay().getYear()); // This will throw a NullPointerException because getHireDay()
+        // returns null, and we are trying to call getYear() on a null reference.
+
+        if(employee4.getHireDay() != null) {
+            IO.println(employee4.getHireDay().getYear());
+        } else {
+            IO.println("Hire day is not set for " + employee4.getName());
+        }
+
+        var employee5 = new Employee("John D", LocalDate.now());
+        IO.println(employee5.getName());
+        IO.println(employee5.getAddress()); // Company street n123 - NYC
+
+        var employee6 = new Employee("Michael R", 4_000, 2026, 4, 30, null);
+        IO.println(employee6.getName()); // Michael R
+        IO.println(employee6.getAddress()); // Company street n321 - NYC
+
+        var employee7 = new Employee("Donald T", 5_000, 2026, 2, 13, "Company street n321 - NYC", null);
+        // This will throw a NullPointerException because the constructor of Employee class is designed to throw an exception if the email parameter is null.
+
     }
 }

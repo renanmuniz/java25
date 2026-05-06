@@ -38,16 +38,31 @@ class Employee {
         this.email = Objects.requireNonNull(email, "Email cannot be null");
     }
 
-    String getName() {
+    public String getName() {
         return name;
     }
 
-    double getSalary() {
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getSalary() {
         return salary;
     }
 
-    LocalDate getHireDay() {
+    public void setSalary(double salary) {
+        if(salary < 0) {
+            throw new IllegalArgumentException("Salary cannot be negative");
+        }
+        this.salary = salary;
+    }
+
+    public LocalDate getHireDay() {
         return hireDay;
+    }
+
+    public void setHireDay(LocalDate hireDay) {
+        this.hireDay = hireDay;
     }
 
     public String getAddress() {
@@ -67,7 +82,13 @@ class Employee {
     }
 
     void raiseSalary(double byPercent) {
-        double raise = salary * byPercent/100;
-        salary+=raise;
+        double raise = this.salary * byPercent/100;
+        this.salary += raise;
+    }
+
+    public static void validateSalary(double salary) {
+        if(salary < 0) {
+            throw new IllegalArgumentException("Salary cannot be negative");
+        }
     }
 }

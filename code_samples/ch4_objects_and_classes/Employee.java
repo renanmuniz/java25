@@ -1,7 +1,9 @@
 package ch4_objects_and_classes;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.Objects;
+import java.util.UUID;
 
 class Employee {
     private static int nextId = 1;
@@ -11,6 +13,7 @@ class Employee {
     private LocalDate hireDay;
     private String address = "Company street n123 - NYC";
     private String email;
+    private final UUID uuid = UUID.randomUUID();
 
     Employee(String n, double s, int year, int month, int day) {
         this.name = n;
@@ -81,6 +84,10 @@ class Employee {
         this.email = email;
     }
 
+    public UUID getUuid() {
+        return uuid;
+    }
+
     void raiseSalary(double byPercent) {
         double raise = this.salary * byPercent/100;
         this.salary += raise;
@@ -90,5 +97,13 @@ class Employee {
         if(salary < 0) {
             throw new IllegalArgumentException("Salary cannot be negative");
         }
+    }
+
+    public boolean isBonusEligible() {
+        return (yearsInCompany(this.hireDay) >= 1 && this.salary >= 5_000);
+    }
+
+    private long yearsInCompany(LocalDate hireDay) {
+        return ChronoUnit.YEARS.between(hireDay, LocalDate.now());
     }
 }

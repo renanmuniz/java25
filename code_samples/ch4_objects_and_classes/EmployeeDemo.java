@@ -56,8 +56,21 @@ public class EmployeeDemo {
         IO.println(employee6.getName()); // Michael R
         IO.println(employee6.getAddress()); // Company street n321 - NYC
 
-        var employee7 = new Employee("Donald T", 5_000, 2026, 2, 13, "Company street n321 - NYC", null);
+        //var employee7 = new Employee("Donald T", 5_000, 2026, 2, 13, "Company street n321 - NYC", null);
         // This will throw a NullPointerException because the constructor of Employee class is designed to throw an exception if the email parameter is null.
+
+        //Using private methods:
+        var employee8 = new Employee("Ronald M", 5_000, 2025, 4, 15, "Company street n321 - NYC", "mail@email.com");
+        IO.println("Bonus Eligible? " + employee8.isBonusEligible()); //true
+
+        var employee9 = new Employee("Ronald M", 4_999, 2025, 4, 15, "Company street n321 - NYC", "mail@email.com");
+        IO.println("Bonus Eligible? " + employee9.isBonusEligible()); //false
+
+        var employee10 = new Employee("Ronald M", 5_001, 2026, 4, 15, "Company street n321 - NYC", "mail@email.com");
+        IO.println("Bonus Eligible? " + employee10.isBonusEligible()); //false
+
+        //Final Instance Field
+        IO.println("UUID" + employee10.getUuid());
 
     }
 }
